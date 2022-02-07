@@ -82,6 +82,7 @@ export const Order = () => {
               required
               id="outlined-required"
               value={number}
+              inputProps={{ inputMode: 'numeric' }}
               onChange={handleNumberChange}
               label="Phone Number"
             />
@@ -96,6 +97,7 @@ export const Order = () => {
               required
               id="outlined-required"
               value={quantity}
+              inputProps={{ inputMode: 'numeric' }}
               onChange={handleQuantityChange}
               label="Quantity"
             />
@@ -133,6 +135,7 @@ export const Order = () => {
               required
               id="outlined-required"
               value={zip}
+              inputProps={{ inputMode: 'numeric' }}
               label="Zip"
               onChange={handleZipChange}
             />
