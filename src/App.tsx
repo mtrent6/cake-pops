@@ -39,7 +39,7 @@ function App() {
             width: 200,
             height: 100,
             alignSelf: "center",
-            marginTop: 50,
+            marginTop: 10,
           }}
           src={logo}
         ></img>
