@@ -124,7 +124,7 @@ function App() {
             {/* @ts-ignore */}
             <ScrollPage page={3}>
               {/* @ts-ignore */}
-              <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
+              <Animator animation={MoveOut(-1000, 0)}>
                 <span style={{ fontSize: "40px" }}>
                   <p>We make custom cake pops for any event for YOU!</p>
                 </span>
