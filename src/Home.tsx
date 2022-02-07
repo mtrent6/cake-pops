@@ -89,11 +89,12 @@ function Home() {
             {/* @ts-ignore */}
             <ScrollPage page={2}>
               <Animator animation={ZoomInScrollOut}>
-                <span style={{ fontSize: "20px" }}>
+                <span style={{ fontSize: "30px" }}>
                   <p>
-                    Alexandria Cake Pop Company, also known as ACPC, started in
+                    Baking since 2012
+                    {/* Alexandria Cake Pop Company started in
                     January 2012 with one goal in mind: share the LOVE of cake
-                    pops!
+                    pops! */}
                   </p>
                 </span>
               </Animator>
@@ -124,11 +125,25 @@ function Home() {
             {/* @ts-ignore */}
             <ScrollPage page={3}>
               {/* @ts-ignore */}
-              <Animator animation={MoveOut(-1000, 0)}>
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
                 <span style={{ fontSize: "40px" }}>
-                  <p>We make custom cake pops for any event for YOU!</p>
+                  <Animator animation={MoveOut(-1000, 0)}>
+                   <p> We make custom cake pops</p>
+                  </Animator>
+
+                  <Animator animation={MoveIn(1000, 0)}>
+                    <p>tailored to YOU!</p>
+                  </Animator>
                 </span>
-              </Animator>
+              </div>
             </ScrollPage>
           </ScrollContainer>
         </div>
