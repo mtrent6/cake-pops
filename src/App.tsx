@@ -46,7 +46,7 @@ function App() {
 
         <div style={{ alignSelf: "center", marginTop: 100 }}>
           <SimpleImageSlider
-            width={400}
+            width={window.screen.width}
             height={400}
             images={images}
             showBullets={false}
