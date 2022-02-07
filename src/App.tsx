@@ -88,7 +88,7 @@ function App() {
             </ScrollPage>
             {/* @ts-ignore */}
             <ScrollPage page={2}>
-              <Animator animation={FadeUp}>
+              <Animator animation={ZoomInScrollOut}>
                 <span style={{ fontSize: "20px" }}>
                   <p>
                     Alexandria Cake Pop Company, also known as ACPC, started in
