@@ -72,7 +72,7 @@ function Home() {
             height={400}
             images={images}
             showBullets={false}
-            showNavs={true}
+            showNavs={false}
             autoPlay={true}
           />
         </div>
