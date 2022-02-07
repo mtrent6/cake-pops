@@ -78,7 +78,6 @@ function Home() {
             {/* @ts-ignore */}
             <ScrollPage page={1}>
               {/* @ts-ignore */}
-
               <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
                 <span style={{ fontSize: "40px" }}>
                   <p>Share the LOVE of Cake Pops!</p>
@@ -87,11 +86,14 @@ function Home() {
               </Animator>
             </ScrollPage>
             {/* @ts-ignore */}
+
             <ScrollPage page={2}>
-              <Animator animation={ZoomInScrollOut}>
-                <span style={{ fontSize: "30px" }}>
+              {/* @ts-ignore */}
+              <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
+                <span style={{ fontSize: "20px" }}>
                   <p>
-                    Baking since 2012
+                    Alexandria Cake Pop Company started in January 2012 with one
+                    goal in mind: share the LOVE of cake pops!{" "}
                     {/* Alexandria Cake Pop Company started in
                     January 2012 with one goal in mind: share the LOVE of cake
                     pops! */}
@@ -135,12 +137,10 @@ function Home() {
                 }}
               >
                 <span style={{ fontSize: "40px" }}>
-                  <Animator animation={MoveOut(-1000, 0)}>
-                   <p> We make custom cake pops</p>
-                  </Animator>
+                  {/* @ts-ignore */}
 
-                  <Animator animation={MoveIn(1000, 0)}>
-                    <p>tailored to YOU!</p>
+                  <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}  >
+                    <p> We make custom cake pops tailored to YOU!</p>
                   </Animator>
                 </span>
               </div>
