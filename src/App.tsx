@@ -1,6 +1,6 @@
 import "./App.css";
 import logo from "./assets/logo.jpg";
-import React, { useState } from "react";
+import React from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import cake1 from "./assets/cake1.jpeg";
 import cake2 from "./assets/cake2.jpeg";
@@ -27,18 +27,14 @@ const images = [
   { url: cake10 },
 ];
 
-
-
-
-
 function App() {
-
   return (
     <div>
-      <TemporaryDrawer/>
+      <TemporaryDrawer />
       <div className="bg-ambar-50 flex flex-col h-screen text-center">
         {/* <header className="font-bold">Alexandria Cake Pops</header> */}
         <img
+          alt="image"
           style={{
             width: 200,
             height: 100,
