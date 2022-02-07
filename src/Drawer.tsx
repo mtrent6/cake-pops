@@ -11,7 +11,8 @@ import MailIcon from "@mui/icons-material/Mail";
 import { useState } from "react";
 
 const HamburgerMenu = (props) => {
-  const { isOpen, setIsOpen } = props;
+  const {  setIsOpen } = props;
+  const isOpen = false //come back and fix
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
   return (
     <div style={{ position: "fixed", right: 0, zIndex: 1000 }}>
