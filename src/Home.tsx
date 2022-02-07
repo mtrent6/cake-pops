@@ -27,11 +27,15 @@ import {
   StickyIn,
   ZoomIn,
 } from "react-scroll-motion";
+import Button from "@mui/material/Button";
+import { Outlet, Link } from "react-router-dom";
+
 //@ts-ignore
 const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
 //@ts-ignore
 const FadeUp = batch(Fade(), Move(), Sticky());
-
+//@ts-ignore
+const animation = batch(Fade(), Sticky(), MoveOut(0, -200));
 const images = [
   { url: cake1 },
   { url: cake2 },
@@ -78,7 +82,7 @@ function Home() {
             {/* @ts-ignore */}
             <ScrollPage page={1}>
               {/* @ts-ignore */}
-              <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
+              <Animator animation={animation}>
                 <span style={{ fontSize: "40px" }}>
                   <p>Share the LOVE of Cake Pops!</p>
                   <p>🎂🎂🎂</p>
@@ -89,7 +93,7 @@ function Home() {
 
             <ScrollPage page={2}>
               {/* @ts-ignore */}
-              <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
+              <Animator animation={animation}>
                 <span style={{ fontSize: "20px" }}>
                   <p>
                     Alexandria Cake Pop Company started in January 2012 with one
@@ -138,8 +142,7 @@ function Home() {
               >
                 <span style={{ fontSize: "40px" }}>
                   {/* @ts-ignore */}
-
-                  <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}  >
+                  <Animator animation={animation}>
                     <p> We make custom cake pops tailored to YOU!</p>
                   </Animator>
                 </span>
@@ -152,7 +155,8 @@ function Home() {
           style={{
             marginLeft: 50,
             marginRight: 50,
-            marginTop: 300
+            marginTop: 300,
+            paddingBottom: 100,
           }}
         >
           <p>
@@ -185,6 +189,11 @@ function Home() {
             Chance, a non-profit dedicated to serving the wounded and ill-combat
             veterans.
           </p>
+          <div style={{marginTop: 80}}>
+            <Link to={"/order"}>
+              <Button variant="contained">Order Now!</Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
