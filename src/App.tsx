@@ -137,10 +137,6 @@ function App() {
           style={{
             marginLeft: 50,
             marginRight: 50,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-end",
-            height: "400vh",
           }}
         >
           <p>
