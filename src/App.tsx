@@ -78,7 +78,9 @@ function App() {
           <ScrollContainer>
             {/* @ts-ignore */}
             <ScrollPage page={1}>
-              <Animator animation={ZoomInScrollOut}>
+              {/* @ts-ignore */}
+
+              <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
                 <span style={{ fontSize: "40px" }}>
                   <p>Share the LOVE of Cake Pops!🎂🎂🎂</p>
                 </span>
