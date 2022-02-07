@@ -2,17 +2,19 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
+import { Divider } from "@mui/material";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useState } from "react";
+import CollectionsIcon from "@mui/icons-material/Collections";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 
 const HamburgerMenu = (props) => {
-  const {  setIsOpen } = props;
-  const isOpen = false //come back and fix
+  const { setIsOpen } = props;
+  const isOpen = false; //come back and fix
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
   return (
     <div style={{ position: "fixed", right: 0, zIndex: 1000 }}>
@@ -48,37 +50,41 @@ export default function TemporaryDrawer(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDrawer = () => {
-      setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
+
+  const getIcon = (index) => {
+    switch (index) {
+      case 0:
+        return <ShoppingCartIcon />;
+      case 1:
+        return <CollectionsIcon />;
+      case 2:
+        return <InstagramIcon />;
+    }
+  };
 
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
       role="presentation"
       onKeyDown={toggleDrawer}
-      
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+        {["Order", "Gallery", "Social Media"].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
+            <ListItemIcon>{getIcon(index)}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
       <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <ListItem button key={0}>
+        <ListItemIcon>
+          <LiveHelpIcon />
+        </ListItemIcon>
+        <ListItemText primary={"FAQ"} />
+      </ListItem>
     </Box>
   );
 
