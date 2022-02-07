@@ -13,6 +13,24 @@ import cake8 from "./assets/cake8.jpeg";
 import cake9 from "./assets/cake9.jpeg";
 import cake10 from "./assets/cake10.jpeg";
 import TemporaryDrawer from "./Drawer";
+import {
+  Animator,
+  ScrollContainer,
+  ScrollPage,
+  batch,
+  Fade,
+  FadeIn,
+  Move,
+  MoveIn,
+  MoveOut,
+  Sticky,
+  StickyIn,
+  ZoomIn,
+} from "react-scroll-motion";
+//@ts-ignore
+const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
+//@ts-ignore
+const FadeUp = batch(Fade(), Move(), Sticky());
 
 const images = [
   { url: cake1 },
@@ -28,6 +46,7 @@ const images = [
 ];
 
 function App() {
+  //@ts-ignore
   return (
     <div>
       <TemporaryDrawer />
@@ -54,15 +73,77 @@ function App() {
             autoPlay={true}
           />
         </div>
+        <div>
+          {/* @ts-ignore */}
+          <ScrollContainer>
+            {/* @ts-ignore */}
+            <ScrollPage page={1}>
+              <Animator animation={ZoomInScrollOut}>
+                <span style={{ fontSize: "50px" }}>
+                  <p>Share the LOVE of Cake Pops!🎂🎂🎂</p>
+                </span>
+              </Animator>
+            </ScrollPage>
+            {/* @ts-ignore */}
+            <ScrollPage page={2}>
+              <Animator animation={FadeUp}>
+                <span style={{ fontSize: "20px" }}>
+                  <p>
+                    Alexandria Cake Pop Company, also known as ACPC, started in
+                    January 2012 with one goal in mind: share the LOVE of cake
+                    pops!
+                  </p>
+                </span>
+              </Animator>
+            </ScrollPage>
+            {/* @ts-ignore */}
+            {/* <ScrollPage page={3}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
+                <span style={{ fontSize: "40px" }}>
+                  <Animator animation={ZoomInScrollOut}>
+                    <img height={300} width={375} src={cake1}></img>
+                  </Animator>
+                  <Animator animation={FadeUp}>
+                    <img height={300} width={375} src={cake4}></img>
+                  </Animator>
+                  <Animator animation={MoveOut(-1000, 0)}>
+                    <img height={300} width={375} src={cake5}></img>
+                  </Animator>
+                </span>
+              </div>
+            </ScrollPage> */}
+            {/* @ts-ignore */}
+            <ScrollPage page={3}>
+              {/* @ts-ignore */}
+              <Animator animation={batch(Fade(), Sticky())}>
+                <span style={{ fontSize: "40px" }}>
+                  <p>We make custom cake pops for any event for YOU!</p>
+                </span>
+                <br />
+                <span style={{ fontSize: "30px" }}></span>
+              </Animator>
+            </ScrollPage>
+          </ScrollContainer>
+        </div>
         <div
           id="aboutUs"
-          style={{ marginLeft: 50, marginRight: 50, marginTop: 30 }}
+          style={{
+            marginLeft: 50,
+            marginRight: 50,
+            marginTop: 30,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+            height: "400vh",
+          }}
         >
-          <p>Share the LOVE of Cake Pops!</p>
-          <p>
-            Alexandria Cake Pop Company, also known as ACPC, started in January
-            2012 with one goal in mind: share the LOVE of cake pops!
-          </p>
           <p>
             Tamara Wilson, founder of ACPC, was introduced to cake pops by her
             grandmother who was fascinated with these sweet concoctions which
