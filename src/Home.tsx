@@ -152,6 +152,7 @@ function Home() {
           style={{
             marginLeft: 50,
             marginRight: 50,
+            marginTop: 300
           }}
         >
           <p>
