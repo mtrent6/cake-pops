@@ -79,7 +79,7 @@ function App() {
             {/* @ts-ignore */}
             <ScrollPage page={1}>
               <Animator animation={ZoomInScrollOut}>
-                <span style={{ fontSize: "50px" }}>
+                <span style={{ fontSize: "40px" }}>
                   <p>Share the LOVE of Cake Pops!🎂🎂🎂</p>
                 </span>
               </Animator>
@@ -137,7 +137,6 @@ function App() {
           style={{
             marginLeft: 50,
             marginRight: 50,
-            marginTop: 30,
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-end",
