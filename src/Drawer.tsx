@@ -11,6 +11,8 @@ import { useState } from "react";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LiveHelpIcon from "@mui/icons-material/LiveHelp";
+import HomeIcon from "@mui/icons-material/Home";
+import { Outlet, Link } from "react-router-dom";
 
 const HamburgerMenu = (props) => {
   const { setIsOpen } = props;
@@ -56,10 +58,12 @@ export default function TemporaryDrawer(props) {
   const getIcon = (index) => {
     switch (index) {
       case 0:
-        return <ShoppingCartIcon />;
+        return <HomeIcon />;
       case 1:
-        return <CollectionsIcon />;
+        return <ShoppingCartIcon />;
       case 2:
+        return <CollectionsIcon />;
+      case 3:
         return <InstagramIcon />;
     }
   };
@@ -71,11 +75,13 @@ export default function TemporaryDrawer(props) {
       onKeyDown={toggleDrawer}
     >
       <List>
-        {["Order", "Gallery", "Social Media"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{getIcon(index)}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+        {["Home", "Order", "Gallery", "Social Media"].map((text, index) => (
+          <Link to={'/' + text.toLowerCase().split(" ").join("-")}>
+            <ListItem button key={text}>
+              <ListItemIcon>{getIcon(index)}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          </Link>
         ))}
       </List>
       <Divider />
@@ -96,6 +102,7 @@ export default function TemporaryDrawer(props) {
         <Drawer anchor={"right"} open={isOpen} onClose={toggleDrawer}>
           {list("right")}
         </Drawer>
+        <Outlet/>
       </React.Fragment>
     </div>
   );
