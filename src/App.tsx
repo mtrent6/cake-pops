@@ -34,7 +34,7 @@ function App() {
       <div className="bg-ambar-50 flex flex-col h-screen text-center">
         {/* <header className="font-bold">Alexandria Cake Pops</header> */}
         <img
-          alt="image"
+          alt="this is a cake pop"
           style={{
             width: 200,
             height: 100,
