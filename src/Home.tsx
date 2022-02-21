@@ -26,6 +26,7 @@ import {
   Sticky,
   StickyIn,
   ZoomIn,
+  FadeOut,
 } from "react-scroll-motion";
 import Button from "@mui/material/Button";
 import { Outlet, Link } from "react-router-dom";
@@ -129,7 +130,7 @@ function Home() {
               >
                 <span style={{ fontSize: "40px" }}>
                   {/* @ts-ignore */}
-                  <Animator animation={animation}>
+                  <Animator animation={Fade()}>
                     <p> We make custom cake pops tailored to YOU!</p>
                   </Animator>
                 </span>
@@ -142,8 +143,6 @@ function Home() {
           style={{
             marginLeft: 50,
             marginRight: 50,
-            marginTop: 300,
-            paddingBottom: 100,
           }}
         >
           <p>
