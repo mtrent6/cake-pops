@@ -91,20 +91,7 @@ function Home() {
             </ScrollPage>
             {/* @ts-ignore */}
 
-            <ScrollPage page={2}>
-              {/* @ts-ignore */}
-              <Animator animation={animation}>
-                <span style={{ fontSize: "20px" }}>
-                  <p>
-                    Alexandria Cake Pop Company started in January 2012 with one
-                    goal in mind: share the LOVE of cake pops!{" "}
-                    {/* Alexandria Cake Pop Company started in
-                    January 2012 with one goal in mind: share the LOVE of cake
-                    pops! */}
-                  </p>
-                </span>
-              </Animator>
-            </ScrollPage>
+           
             {/* @ts-ignore */}
             {/* <ScrollPage page={3}>
               <div
@@ -129,7 +116,7 @@ function Home() {
               </div>
             </ScrollPage> */}
             {/* @ts-ignore */}
-            <ScrollPage page={3}>
+            <ScrollPage page={2}>
               {/* @ts-ignore */}
 
               <div
