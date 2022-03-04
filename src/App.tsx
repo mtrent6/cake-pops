@@ -2,7 +2,8 @@ import "./App.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Order} from './Order'
+import { Order } from './Order'
+import MasonryImageList from "./MasonryImage";
 import Home from './Home'
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         <Route path="/home" element={<Home />} />
 
         <Route path="/order" element={<Order />} />
+        <Route path="/gallery" element={<MasonryImageList />} />
+
 
       </Routes>
     </BrowserRouter>
