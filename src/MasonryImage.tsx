@@ -10,7 +10,7 @@ export default function MasonryImageList() {
             <TemporaryDrawer />
 
             <p style={{ textAlign: 'center', padding: 30 }}>Gallery</p>
-            <Box sx={{ width: 400, height: 450, overflowY: 'scroll' }}>
+            <Box sx={{ width: 400, height: 600, overflowY: 'scroll' }}>
                 <ImageList variant="masonry" cols={3} gap={8}>
                     {itemData.map((item) => (
                         <ImageListItem key={item.img}>
@@ -78,4 +78,5 @@ const itemData = [
         img: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4',
         title: 'Coffee table',
     },
+
 ];
