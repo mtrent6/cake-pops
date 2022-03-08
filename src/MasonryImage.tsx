@@ -4,6 +4,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import TemporaryDrawer from './Drawer';
 import { CAKE_POP_PHOTOS } from './photos';
+import { useEffect } from 'react'
 
 const photos = CAKE_POP_PHOTOS.map(pop => {
     return {
@@ -11,9 +12,12 @@ const photos = CAKE_POP_PHOTOS.map(pop => {
     }
 })
 
-
-
 export default function MasonryImageList() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+
+    }, [])
+
 
 
     return (
