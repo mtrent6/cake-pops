@@ -175,7 +175,7 @@ function Home() {
             Chance, a non-profit dedicated to serving the wounded and ill-combat
             veterans.
           </p>
-          <div style={{marginTop: 80}}>
+          <div style={{marginTop: 80, marginBottom: 80}}>
             <Link to={"/order"}>
               <Button variant="contained">Order Now!</Button>
             </Link>
