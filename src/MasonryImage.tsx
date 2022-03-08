@@ -3,21 +3,32 @@ import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import TemporaryDrawer from './Drawer';
+import { CAKE_POP_PHOTOS } from './photos';
+
+const photos = CAKE_POP_PHOTOS.map(pop => {
+    return {
+        img: pop,
+    }
+})
+
+
 
 export default function MasonryImageList() {
+
+
     return (
         <div style={{ overflowY: "hidden" }}>
             <TemporaryDrawer />
 
             <p style={{ textAlign: 'center', padding: 30 }}>Gallery</p>
-            <Box sx={{ width: 400, height: 600, overflowY: 'scroll' }}>
-                <ImageList variant="masonry" cols={3} gap={8}>
-                    {itemData.map((item) => (
+            <Box sx={{ width: window.screen.width, height: window.screen.height - 80, overflowY: 'scroll' }}>
+                <ImageList variant="masonry" cols={2} gap={8}>
+                    {photos.map((item, i) => (
                         <ImageListItem key={item.img}>
                             <img
                                 src={`${item.img}?w=248&fit=crop&auto=format`}
                                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                alt={item.title}
+                                alt={'' + i}
                                 loading="lazy"
                             />
                         </ImageListItem>
