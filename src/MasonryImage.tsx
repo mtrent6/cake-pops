@@ -27,7 +27,7 @@ export default function MasonryImageList() {
             <TemporaryDrawer />
 
             <p style={{ textAlign: 'center', padding: 30 }}>Gallery</p>
-            <Box sx={{ width: window.screen.width, height: window.screen.height - 175, overflowY: 'auto' }}>
+            <Box sx={{ width: window.screen.width, height: window.screen.availHeight - 250, overflowY: 'auto' }}>
                 <ImageList variant="masonry" cols={2} gap={8}>
                     {photos.map((item, i) => (
                         <ImageListItem key={item.img}>
