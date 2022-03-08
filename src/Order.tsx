@@ -244,7 +244,7 @@ export const Order = () => {
                 ))}
               </Select>
             </FormControl>
-            <p style={{ paddingBottom: 5 }}>select the color for your cake pops</p>
+            <p style={{ paddingBottom: 8 }}>select the color for your cake pops</p>
 
             <FormControl style={{ width: 250 }} error={flavor.length > 2}>
               <InputLabel id="demo-simple-select-label">Color</InputLabel>
