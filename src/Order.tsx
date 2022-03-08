@@ -22,25 +22,25 @@ function orderNumber() {
   // pad with extra random digit
   now += now + Math.floor(Math.random() * 10)
   // format
-  return  [now.slice(0, 4), now.slice(4, 10), now.slice(10, 14)].join('-')
+  return [now.slice(0, 4), now.slice(4, 10), now.slice(10, 14)].join('-')
 }
 
 
 export const Receipt = () => {
 
   return (
-    <div style={{height: window.screen.height}}>
+    <div style={{ height: window.screen.height }}>
       <TemporaryDrawer />
       <div className="bg-ambar-50"  >
-        <div style={{display: 'flex', justifyContent: 'center', paddingTop: 200, alignItems: 'center', flexDirection: 'column'}}>
-          <p style={{fontSize: 24}}>Thank you for your Order!</p>
-          <p style={{fontSize: 20}}>Your Order Number is: </p>
-          <p style={{fontSize: 20}}>{orderNumber()} </p>
-          <p style={{textAlign: 'center'}}>Please email us at email@gmail.com with any questions</p>
+        <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 200, alignItems: 'center', flexDirection: 'column' }}>
+          <p style={{ fontSize: 24 }}>Thank you for your Order!</p>
+          <p style={{ fontSize: 20 }}>Your Order Number is: </p>
+          <p style={{ fontSize: 20 }}>{orderNumber()} </p>
+          <p style={{ textAlign: 'center' }}>Please email us at email@gmail.com with any questions</p>
 
 
-          </div>
-        
+        </div>
+
       </div>
     </div>
   )
@@ -174,6 +174,8 @@ export const Order = () => {
 
   const [date, setDate] = useState(new Date());
 
+  const [color, setColor] = useState('')
+
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
   };
@@ -182,6 +184,16 @@ export const Order = () => {
     setDate(value);
   };
 
+  const handleColorChange = (event) => {
+    const eColor = event.target.value
+    if (color === eColor) {
+      setColor('')
+    }
+    else {
+
+      setColor(eColor)
+    }
+  }
 
 
   const handleFlavorChange = (event) => {
@@ -233,7 +245,7 @@ export const Order = () => {
                 multiple
                 onChange={handleFlavorChange}
                 input={<OutlinedInput label="Flavor" />}
-                renderValue={(selected) => selected.join(", ")}
+                renderValue={(selected) => selected.join(" and ")}
               >
                 {flavors.map((flv) => (
                   <MenuItem key={flv} value={flv}>
@@ -251,38 +263,31 @@ export const Order = () => {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value="test"
+                value={color}
+                onChange={handleColorChange}
                 label="Color"
+                input={<OutlinedInput label="Color" />}
+                renderValue={(selected) => selected}
+
               >
-                <MenuItem value="blue">
-                  <Checkbox checked={false} />
-                  <div style={{ backgroundColor: "blue", width: "100%" }}>
-                    <p></p>
-                  </div>
+                <MenuItem value="blue" style={{backgroundColor: 'blue', color: 'white'}}>
+                  <ListItemText primary={'blue'} />
+
+                 
                 </MenuItem>
-                <MenuItem value="magenta">
-                  <Checkbox checked={false} />
-                  <div style={{ backgroundColor: "magenta", width: "100%" }}>
-                    <p></p>
-                  </div>
+                <MenuItem style={{backgroundColor: 'magenta'}} value="magenta">
+                <ListItemText primary={'magenta'} />
+  
                 </MenuItem>
-                <MenuItem value="yellow">
-                  <Checkbox checked={false} />
-                  <div style={{ backgroundColor: "yellow", width: "100%" }}>
-                    <p></p>
-                  </div>
+                <MenuItem style={{backgroundColor: 'yellow'}} value="yellow">
+                <ListItemText primary={'yellow'} />
+
                 </MenuItem>
-                <MenuItem value="red">
-                  <Checkbox checked={false} />
-                  <div style={{ backgroundColor: "red", width: "100%" }}>
-                    <p></p>
-                  </div>
+                <MenuItem style={{backgroundColor:'red'}} value="red">
+                <ListItemText primary={'red'} />
                 </MenuItem>
-                <MenuItem value="green">
-                  <Checkbox checked={false} />
-                  <div style={{ backgroundColor: "green", width: "100%" }}>
-                    <p></p>
-                  </div>
+                <MenuItem style={{backgroundColor: 'green'}} value="green">
+                <ListItemText primary={'green'} />
                 </MenuItem>
               </Select>
             </FormControl>
