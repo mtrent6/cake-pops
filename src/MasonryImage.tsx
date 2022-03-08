@@ -17,7 +17,7 @@ export default function MasonryImageList() {
 
 
     return (
-        <div style={{ overflowY: "hidden" }}>
+        <div>
             <TemporaryDrawer />
 
             <p style={{ textAlign: 'center', padding: 30 }}>Gallery</p>
