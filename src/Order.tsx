@@ -29,7 +29,7 @@ function orderNumber() {
 export const Receipt = () => {
 
   return (
-    <>
+    <div style={{height: window.screen.height}}>
       <TemporaryDrawer />
       <div className="bg-ambar-50"  >
         <div style={{display: 'flex', justifyContent: 'center', paddingTop: 200, alignItems: 'center', flexDirection: 'column'}}>
@@ -42,7 +42,7 @@ export const Receipt = () => {
           </div>
         
       </div>
-    </>
+    </div>
   )
 
 }
