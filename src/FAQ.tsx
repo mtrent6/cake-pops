@@ -9,7 +9,7 @@ export const FAQ = () => {
         <p style={{ textAlign: 'center', padding: 30 }}>FAQ</p>
 
 
-        <div style={{ marginLeft: 20 }}>
+        <div style={{ marginLeft: 20, marginRight: 10 }}>
 
             <p style={{ fontWeight: 800, padding: 0 }}>What are cake pops?</p>
             <p style={{ padding: 0 }}>Cake pops are 3-4 bites of deliciously moist cake coated in only the finest chocolate and scrumptious toppings.
