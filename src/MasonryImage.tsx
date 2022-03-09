@@ -108,7 +108,7 @@ export default function MasonryImageList() {
             </Box>
             <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}>
                 <Link to={"/order"}>
-                    <Button variant="contained">Order Now!</Button>
+                    <Button variant="contained">Order A Custom Pop</Button>
                 </Link>
             </div>
         </div>
