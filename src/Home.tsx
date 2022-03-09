@@ -92,7 +92,7 @@ function Home() {
             </ScrollPage>
             {/* @ts-ignore */}
 
-           
+
             {/* @ts-ignore */}
             {/* <ScrollPage page={3}>
               <div
@@ -169,19 +169,20 @@ function Home() {
             dessert horizons with ACPC!
           </p>
           <p>
-            ​​We enjoy spreading the LOVE of cake pops and and we also donate to
+            We enjoy spreading the LOVE of cake pops and and we also donate to
             multiple DC area chartities. Some of the charities include Cystic
             Fibrosis Foundation, Give Back Alexandria, and Operation Second
             Chance, a non-profit dedicated to serving the wounded and ill-combat
             veterans.
           </p>
-          <div style={{marginTop: 60, marginBottom: 80}}>
+          <div style={{ marginTop: 60, marginBottom: 80 }}>
+            <Link to={"/gallery"}>
+              <Button variant="contained">Check out our Gallery</Button>
+            </Link>
+            <p style={{fontSize: 15, padding: 20}}>Or if you know what you want</p>
+
             <Link to={"/order"}>
               <Button variant="contained">Order Now!</Button>
-            </Link>
-            <div style={{paddingBottom: 20}}></div>
-            <Link to={"/gallery"}>
-              <Button variant="contained">View our Gallery</Button>
             </Link>
           </div>
         </div>
