@@ -40,10 +40,12 @@ export default function MasonryImageList() {
     }, [])
 
     const [isOpen, setIsOpen] = useState(false)
+    const [imgSrc, setImgSrc] = useState()
 
-    const handleShowDialog = () => {
+    const handleShowDialog = (src) => () => {
         setIsOpen(!isOpen);
         console.log('cliked');
+        setImgSrc(src)
     };
 
 
@@ -53,7 +55,7 @@ export default function MasonryImageList() {
         <div style={{ height: window.screen.height }}>
             <Modal
                 open={isOpen}
-                onClose={handleShowDialog}
+                onClose={handleShowDialog('')}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
@@ -62,13 +64,18 @@ export default function MasonryImageList() {
                         Here is a sample cake pop
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                        here is a description about the cake pop, it costs $(insert price)
                     </Typography>
                     <img
-                        src={cake6}
+                        src={imgSrc}
                         alt={'modal image'}
-                    // loading="lazy"
+                        loading='lazy'
                     />
+                    <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}>
+                        <Link to={"/order"}>
+                            <Button variant="contained">Order This CakePop</Button>
+                        </Link>
+                    </div>
                 </Box>
             </Modal>
             <TemporaryDrawer />
@@ -79,7 +86,7 @@ export default function MasonryImageList() {
                     {photos.map((item, i) => (
                         <ImageListItem key={item.img}>
                             <img
-                                onClick={handleShowDialog}
+                                onClick={handleShowDialog(`${item.img}?w=248&fit=crop&auto=format`)}
                                 src={`${item.img}?w=248&fit=crop&auto=format`}
                                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={'' + i}
