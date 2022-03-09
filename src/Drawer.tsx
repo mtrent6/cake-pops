@@ -25,23 +25,20 @@ const HamburgerMenu = (props) => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <div
-          className={`${genericHamburgerLine} ${
-            isOpen
+          className={`${genericHamburgerLine} ${isOpen
               ? "rotate-45 translate-y-3 opacity-50 group-hover:opacity-100"
               : "opacity-50 group-hover:opacity-100"
-          }`}
+            }`}
         />
         <div
-          className={`${genericHamburgerLine} ${
-            isOpen ? "opacity-0" : "opacity-50 group-hover:opacity-100"
-          }`}
+          className={`${genericHamburgerLine} ${isOpen ? "opacity-0" : "opacity-50 group-hover:opacity-100"
+            }`}
         />
         <div
-          className={`${genericHamburgerLine} ${
-            isOpen
+          className={`${genericHamburgerLine} ${isOpen
               ? "-rotate-45 -translate-y-3 opacity-50 group-hover:opacity-100"
               : "opacity-50 group-hover:opacity-100"
-          }`}
+            }`}
         />
       </button>
     </div>
@@ -85,12 +82,15 @@ export default function TemporaryDrawer(props) {
         ))}
       </List>
       <Divider />
-      <ListItem button key={0}>
-        <ListItemIcon>
-          <LiveHelpIcon />
-        </ListItemIcon>
-        <ListItemText primary={"FAQ"} />
-      </ListItem>
+      <Link to={'/FAQ'}>
+
+        <ListItem button key={0}>
+          <ListItemIcon>
+            <LiveHelpIcon />
+          </ListItemIcon>
+          <ListItemText primary={"FAQ"} />
+        </ListItem>
+      </Link>
     </Box>
   );
 
@@ -102,7 +102,7 @@ export default function TemporaryDrawer(props) {
         <Drawer anchor={"right"} open={isOpen} onClose={toggleDrawer}>
           {list("right")}
         </Drawer>
-        <Outlet/>
+        <Outlet />
       </React.Fragment>
     </div>
   );
