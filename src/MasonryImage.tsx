@@ -7,10 +7,14 @@ import { CAKE_POP_PHOTOS } from './photos';
 import { useEffect } from 'react'
 import Button from "@mui/material/Button";
 import { Outlet, Link } from "react-router-dom";
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import IconButton from '@mui/material/IconButton';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
-const photos = CAKE_POP_PHOTOS.map(pop => {
+const photos = CAKE_POP_PHOTOS.map((pop, i) => {
     return {
         img: pop,
+        title: 'cake pop ' + i
     }
 })
 
@@ -35,7 +39,25 @@ export default function MasonryImageList() {
                                 src={`${item.img}?w=248&fit=crop&auto=format`}
                                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={'' + i}
-                                loading="lazy"
+                                // loading="lazy"
+                            />
+                            <ImageListItemBar
+                                sx={{
+                                    background:
+                                        'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
+                                        'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+                                }}
+                                title={item.title}
+                                position="top"
+                                actionIcon={
+                                    <IconButton
+                                        sx={{ color: 'white' }}
+                                        aria-label={`star ${item.title}`}
+                                    >
+                                        <StarBorderIcon />
+                                    </IconButton>
+                                }
+                                actionPosition="left"
                             />
                         </ImageListItem>
                     ))}
