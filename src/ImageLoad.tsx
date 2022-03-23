@@ -1,33 +1,42 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import './App.css'
 
-import React, { useState, useEffect } from 'react';
-//@ts-ignore
-const ImageLoad = React.memo(({ src, placeholder, alt = "", onClick, srcSet }) => {
-  const [loading, setLoading] = useState(true);
-  const [currentSrc, updateSrc] = useState(placeholder);
+export const ImageLoad = (props) => {
+    const { src, onClick, srcSet } = props
 
-  useEffect(() => {
-    // start loading original image
-    const imageToLoad = new Image();
-    imageToLoad.src = src;
-    imageToLoad.onload = () => {
-      // When image is loaded replace the src and set loading to false
-      setLoading(false);
-      updateSrc(src);
-    }
-  }, [src])
+    const [imageLoading, setImageLoading] = useState(true);
+    const [pulsing, setPulsing] = useState(true);
 
-  return (
-    <img
-      src={currentSrc}
-      style={{
-        opacity: loading ? 0.5 : 1,
-        transition: "opacity .15s linear"
-      }}
-      srcSet={srcSet}
-      onClick={onClick}
-      alt={alt}
-    />
-  )
-});
+    const imageLoaded = () => {
+        setImageLoading(false);
+        setTimeout(() => setPulsing(false), 600);
+    };
 
-export default ImageLoad;
+    return (
+        <div className="App">
+            <div
+                className={`${pulsing ? "pulse" : ""} loadable`}
+                style={{ background: "#ccc" }}
+            >
+                <motion.img
+                    initial={{ height: "16rem", opacity: 0 }}
+                    onClick={onClick}
+                    style={{ height: imageLoading ? "6rem" : "auto" }}
+                    animate={{
+                        height: imageLoading ? "16rem" : "auto",
+                        opacity: imageLoading ? 0 : 1
+                    }}
+                    // @ts-ignore
+                    transition={({ height: { delay: 0, duration: 0.4 } },
+                            { opacity: { delay: 0.5, duration: 0.4 } })
+                    }
+                    onLoad={imageLoaded}
+                    width="100%"
+                    src={src}
+                    srcSet={srcSet}
+                />
+            </div>
+        </div>
+    );
+}

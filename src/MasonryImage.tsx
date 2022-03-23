@@ -13,7 +13,7 @@ import cake6 from "./assets/cake6.jpeg";
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import blurry from "./assets/blurry.jpeg"
-import ImageLoad from "./ImageLoad"
+import {ImageLoad} from "./ImageLoad"
 const style = {
     position: 'absolute',
     top: '50%',
@@ -71,7 +71,6 @@ export default function MasonryImageList() {
                     </Typography>
                     {/* @ts-ignore */}
                     <ImageLoad src={`${imgSrc}?w=248&fit=crop&auto=format`}
-                        placeholder={`${blurry}?w=248&fit=crop&auto=format`}
                     />
 
                     <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}>
@@ -93,7 +92,6 @@ export default function MasonryImageList() {
                                     <ImageLoad onClick={() => setShowFirstPage(false)}
                                         src={`${item.img}?w=248&fit=crop&auto=format`}
                                         srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                        placeholder={`${blurry}?w=248&fit=crop&auto=format`}
                                     />
 
                                     <ImageListItemBar
@@ -125,7 +123,6 @@ export default function MasonryImageList() {
                                 <ImageLoad onClick={handleShowDialog(`${item.img}?w=248&fit=crop&auto=format`)}
                                     src={`${item.img}?w=248&fit=crop&auto=format`}
                                     srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    placeholder={`${blurry}?w=248&fit=crop&auto=format`}
                                 />
                                 <ImageListItemBar
                                     sx={{
