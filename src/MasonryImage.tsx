@@ -118,9 +118,9 @@ export default function MasonryImageList() {
 
             {!showFirstPage && <>
                 <div onClick={() => setShowFirstPage(true)} style={{ position: 'absolute', top: 15, left: 8 }}><ArrowBackIcon /></div>
-                <p style={{ textAlign: 'center', padding: 30 }}>Gallery</p>
-                <Box sx={{ width: window.screen.width, height: window.screen.availHeight - 250, overflowY: 'auto' }}>
-                    <ImageList variant="masonry" cols={2} gap={8}>
+                <p style={{ position: 'fixed', display: 'flex', justifyContent: 'center', padding: 30, width: window.screen.width, zIndex: 999, backgroundColor: 'white' }}>Gallery</p>
+                <Box>
+                    <ImageList sx={{paddingTop: '80px', paddingBottom: '60px'}} variant="masonry" cols={2} gap={8}>
                         {photos.map((item, i) => (
                             <ImageListItem key={item.img}>
                                 <img
@@ -144,7 +144,8 @@ export default function MasonryImageList() {
                         ))}
                     </ImageList>
                 </Box>
-                <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}>
+                {/* <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}> */}
+                <div style={{position: 'fixed', bottom: 0, paddingBottom: 15, paddingTop: 15, display: 'flex', justifyContent: 'center', width: window.screen.width, backgroundColor: 'white' }}>
                     <Link to={"/order"}>
                         <Button variant="contained">Order A Custom Pop</Button>
                     </Link>
