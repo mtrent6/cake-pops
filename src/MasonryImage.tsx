@@ -12,8 +12,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import cake6 from "./assets/cake6.jpeg";
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { WindowRounded } from '@mui/icons-material';
-
+import blurry from "./assets/blurry.jpeg"
+import ImageLoad from "./ImageLoad"
 const style = {
     position: 'absolute',
     top: '50%',
@@ -64,16 +64,16 @@ export default function MasonryImageList() {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        <p style={{padding:0}}>Cherry Flavored Cake Pops</p>
+                        <p style={{ padding: 0 }}>Cherry Flavored Cake Pops</p>
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        <p style={{padding: 0}}>These cake pops are made with a pronminent cherry flavor. They are selling for $50 a dozen, order below!</p>
+                        <p style={{ padding: 0 }}>These cake pops are made with a pronminent cherry flavor. They are selling for $50 a dozen, order below!</p>
                     </Typography>
-                    <img
-                        src={imgSrc}
-                        alt={'modal image'}
-                        loading='lazy'
+                    {/* @ts-ignore */}
+                    <ImageLoad src={`${imgSrc}?w=248&fit=crop&auto=format`}
+                        placeholder={`${blurry}?w=248&fit=crop&auto=format`}
                     />
+
                     <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}>
                         <Link to={"/order"}>
                             <Button sx={{ backgroundColor: '#FAD900', fontFamily: 'monospace', color: 'black' }} variant="contained">Order This CakePop</Button>
@@ -89,13 +89,13 @@ export default function MasonryImageList() {
                         <ImageList sx={{ paddingTop: '80px' }} cols={1} gap={2}>
                             {selectorPhotos.map((item, i) => (
                                 <ImageListItem key={item.img}>
-                                    <img
-                                        onClick={() => setShowFirstPage(false)}
+                                    {/* @ts-ignore */}
+                                    <ImageLoad onClick={() => setShowFirstPage(false)}
                                         src={`${item.img}?w=248&fit=crop&auto=format`}
                                         srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                        alt={'' + i}
-                                    // loading="lazy"
+                                        placeholder={`${blurry}?w=248&fit=crop&auto=format`}
                                     />
+
                                     <ImageListItemBar
                                         sx={{
                                             background:
@@ -121,12 +121,11 @@ export default function MasonryImageList() {
                     <ImageList sx={{ paddingTop: '80px', paddingBottom: '60px' }} variant="masonry" cols={2} gap={8}>
                         {photos.map((item, i) => (
                             <ImageListItem key={item.img}>
-                                <img
-                                    onClick={handleShowDialog(`${item.img}?w=248&fit=crop&auto=format`)}
+                                {/* @ts-ignore */}
+                                <ImageLoad onClick={handleShowDialog(`${item.img}?w=248&fit=crop&auto=format`)}
                                     src={`${item.img}?w=248&fit=crop&auto=format`}
                                     srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={'' + i}
-                                // loading="lazy"
+                                    placeholder={`${blurry}?w=248&fit=crop&auto=format`}
                                 />
                                 <ImageListItemBar
                                     sx={{
