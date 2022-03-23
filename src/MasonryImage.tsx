@@ -21,9 +21,7 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
     boxShadow: 24,
-    opacity: .9,
     p: 4,
 };
 
@@ -66,10 +64,10 @@ export default function MasonryImageList() {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Here is a sample cake pop
+                        <p style={{padding:0}}>Cherry Flavored Cake Pops</p>
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        here is a description about the cake pop, it costs $(insert price)
+                        <p style={{padding: 0}}>These cake pops are made with a pronminent cherry flavor. They are selling for $50 a dozen, order below!</p>
                     </Typography>
                     <img
                         src={imgSrc}
