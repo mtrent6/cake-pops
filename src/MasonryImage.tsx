@@ -117,7 +117,7 @@ export default function MasonryImageList() {
             }
 
             {!showFirstPage && <>
-                <div onClick={() => setShowFirstPage(true)} style={{ position: 'absolute', top: 15, left: 8 }}><ArrowBackIcon /></div>
+                <div onClick={() => setShowFirstPage(true)} style={{ position: 'fixed', top: 15, left: 8, zIndex: 1000 }}><ArrowBackIcon /></div>
                 <p style={{ position: 'fixed', display: 'flex', justifyContent: 'center', padding: 30, width: window.screen.width, zIndex: 999, backgroundColor: 'white' }}>Gallery</p>
                 <Box>
                     <ImageList sx={{paddingTop: '80px', paddingBottom: '60px'}} variant="masonry" cols={2} gap={8}>
