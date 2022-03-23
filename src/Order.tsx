@@ -156,7 +156,7 @@ export const Delivery = () => {
         </Box>
         <div style={{ paddingTop: 30 }}>
           <Link to={"/order/receipt"}>
-            <Button variant="contained">Submit</Button>
+            <Button sx={{ backgroundColor: '#FAD900', fontFamily: 'monospace', color: 'black'}} variant="contained">Submit</Button>
           </Link>
         </div>
 
@@ -314,7 +314,7 @@ export const Order = () => {
 
             <div style={{ marginTop: 80, marginBottom: 80 }}>
               <Link to={"/order/delivery"}>
-                <Button variant="contained">Continue</Button>
+                <Button sx={{ backgroundColor: '#FAD900', color: 'black', fontFamily: 'monospace' }} variant="contained">Continue</Button>
               </Link>
             </div>
 

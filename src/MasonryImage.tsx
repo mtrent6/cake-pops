@@ -78,7 +78,7 @@ export default function MasonryImageList() {
                     />
                     <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}>
                         <Link to={"/order"}>
-                            <Button variant="contained">Order This CakePop</Button>
+                            <Button sx={{ backgroundColor: '#FAD900', fontFamily: 'monospace', color: 'black' }} variant="contained">Order This CakePop</Button>
                         </Link>
                     </div>
                 </Box>
@@ -88,7 +88,7 @@ export default function MasonryImageList() {
                 <>
                     <p style={{ position: 'fixed', display: 'flex', justifyContent: 'center', padding: 30, width: window.screen.width, zIndex: 999, backgroundColor: 'white' }}>Select Items</p>
                     <Box >
-                        <ImageList sx={{paddingTop: '80px'}} cols={1} gap={2}>
+                        <ImageList sx={{ paddingTop: '80px' }} cols={1} gap={2}>
                             {selectorPhotos.map((item, i) => (
                                 <ImageListItem key={item.img}>
                                     <img
@@ -120,7 +120,7 @@ export default function MasonryImageList() {
                 <div onClick={() => setShowFirstPage(true)} style={{ position: 'fixed', top: 15, left: 8, zIndex: 1000 }}><ArrowBackIcon /></div>
                 <p style={{ position: 'fixed', display: 'flex', justifyContent: 'center', padding: 30, width: window.screen.width, zIndex: 999, backgroundColor: 'white' }}>Gallery</p>
                 <Box>
-                    <ImageList sx={{paddingTop: '80px', paddingBottom: '60px'}} variant="masonry" cols={2} gap={8}>
+                    <ImageList sx={{ paddingTop: '80px', paddingBottom: '60px' }} variant="masonry" cols={2} gap={8}>
                         {photos.map((item, i) => (
                             <ImageListItem key={item.img}>
                                 <img
@@ -145,9 +145,9 @@ export default function MasonryImageList() {
                     </ImageList>
                 </Box>
                 {/* <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}> */}
-                <div style={{position: 'fixed', bottom: 0, paddingBottom: 15, paddingTop: 15, display: 'flex', justifyContent: 'center', width: window.screen.width, backgroundColor: 'white' }}>
+                <div style={{ position: 'fixed', bottom: 0, paddingBottom: 15, paddingTop: 15, display: 'flex', justifyContent: 'center', width: window.screen.width, backgroundColor: 'white' }}>
                     <Link to={"/order"}>
-                        <Button variant="contained">Order A Custom Pop</Button>
+                        <Button sx={{ backgroundColor: '#FAD900', fontFamily: 'monospace', color: 'black' }} variant="contained">Order A Custom Pop</Button>
                     </Link>
                 </div></>}
         </div>

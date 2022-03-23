@@ -177,12 +177,12 @@ function Home() {
           </p>
           <div style={{ marginTop: 60, marginBottom: 80 }}>
             <Link to={"/gallery"}>
-              <Button variant="contained">Check out our Gallery</Button>
+              <Button sx={{ backgroundColor: '#FAD900', color: 'black', fontFamily: 'monospace' }} variant="contained">Check out our Gallery</Button>
             </Link>
-            <p style={{fontSize: 15, padding: 20}}>Or if you know what you want</p>
+            <p style={{ fontSize: 15, padding: 20 }}>Or if you know what you want</p>
 
             <Link to={"/order"}>
-              <Button variant="contained">Order Now!</Button>
+              <Button sx={{ backgroundColor: '#FAD900', color: 'black', fontFamily: 'monospace' }} variant="contained">Order Now!</Button>
             </Link>
           </div>
         </div>
