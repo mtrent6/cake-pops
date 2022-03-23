@@ -86,9 +86,9 @@ export default function MasonryImageList() {
             <TemporaryDrawer />
             {showFirstPage &&
                 <>
-                    <p style={{ textAlign: 'center', padding: 30 }}>Select Items</p>
+                    <p style={{ position: 'fixed', display: 'flex', justifyContent: 'center', padding: 30, width: window.screen.width, zIndex: 999, backgroundColor: 'white' }}>Select Items</p>
                     <Box >
-                        <ImageList sx={{height: window.screen.height - 80}} cols={1} gap={2}>
+                        <ImageList sx={{paddingTop: '80px'}} cols={1} gap={2}>
                             {selectorPhotos.map((item, i) => (
                                 <ImageListItem key={item.img}>
                                     <img
@@ -112,9 +112,9 @@ export default function MasonryImageList() {
                             ))}
                         </ImageList>
                     </Box>
-                    </>
-                    
-                    }
+                </>
+
+            }
 
             {!showFirstPage && <>
                 <div onClick={() => setShowFirstPage(true)} style={{ position: 'absolute', top: 15, left: 8 }}><ArrowBackIcon /></div>
