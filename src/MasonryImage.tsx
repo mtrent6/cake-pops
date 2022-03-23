@@ -12,6 +12,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import cake6 from "./assets/cake6.jpeg";
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { WindowRounded } from '@mui/icons-material';
 
 const style = {
     position: 'absolute',
@@ -55,8 +56,6 @@ export default function MasonryImageList() {
     };
 
 
-
-
     return (
         <div style={{ height: window.screen.height }}>
             <Modal
@@ -87,11 +86,9 @@ export default function MasonryImageList() {
             <TemporaryDrawer />
             {showFirstPage &&
                 <>
-
                     <p style={{ textAlign: 'center', padding: 30 }}>Select Items</p>
-
-                    <Box sx={{ width: window.screen.width, height: window.screen.height, overflowY: 'auto' }}>
-                        <ImageList cols={1} gap={2}>
+                    <Box >
+                        <ImageList sx={{height: window.screen.height - 80}} cols={1} gap={2}>
                             {selectorPhotos.map((item, i) => (
                                 <ImageListItem key={item.img}>
                                     <img
@@ -114,7 +111,10 @@ export default function MasonryImageList() {
                                 </ImageListItem>
                             ))}
                         </ImageList>
-                    </Box></>}
+                    </Box>
+                    </>
+                    
+                    }
 
             {!showFirstPage && <>
                 <div onClick={() => setShowFirstPage(true)} style={{ position: 'absolute', top: 15, left: 8 }}><ArrowBackIcon /></div>
