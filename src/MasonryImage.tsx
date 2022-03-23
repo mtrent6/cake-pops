@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import Button from "@mui/material/Button";
 import { Outlet, Link } from "react-router-dom";
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import cake6 from "./assets/cake6.jpeg";
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -33,6 +33,11 @@ const photos = CAKE_POP_PHOTOS.map((pop, i) => {
     }
 })
 
+let selectorPhotos = photos.slice(0, 3)
+selectorPhotos[0].title = "Cookies"
+selectorPhotos[1].title = "Cake Pops"
+selectorPhotos[2].title = "Custom"
+
 export default function MasonryImageList() {
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -41,6 +46,7 @@ export default function MasonryImageList() {
 
     const [isOpen, setIsOpen] = useState(false)
     const [imgSrc, setImgSrc] = useState()
+    const [showFirstPage, setShowFirstPage] = useState(true)
 
     const handleShowDialog = (src) => () => {
         setIsOpen(!isOpen);
@@ -79,38 +85,70 @@ export default function MasonryImageList() {
                 </Box>
             </Modal>
             <TemporaryDrawer />
+            {showFirstPage &&
+                <>
 
-            <p style={{ textAlign: 'center', padding: 30 }}>Gallery</p>
-            <Box sx={{ width: window.screen.width, height: window.screen.availHeight - 250, overflowY: 'auto' }}>
-                <ImageList variant="masonry" cols={2} gap={8}>
-                    {photos.map((item, i) => (
-                        <ImageListItem key={item.img}>
-                            <img
-                                onClick={handleShowDialog(`${item.img}?w=248&fit=crop&auto=format`)}
-                                src={`${item.img}?w=248&fit=crop&auto=format`}
-                                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                alt={'' + i}
-                            // loading="lazy"
-                            />
-                            <ImageListItemBar
-                                sx={{
-                                    background:
-                                        'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
-                                        'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-                                }}
-                                title={item.title}
-                                position="top"
+                    <p style={{ textAlign: 'center', padding: 30 }}>Select Items</p>
 
-                            />
-                        </ImageListItem>
-                    ))}
-                </ImageList>
-            </Box>
-            <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}>
-                <Link to={"/order"}>
-                    <Button variant="contained">Order A Custom Pop</Button>
-                </Link>
-            </div>
+                    <Box sx={{ width: window.screen.width, height: window.screen.height, overflowY: 'auto' }}>
+                        <ImageList cols={1} gap={2}>
+                            {selectorPhotos.map((item, i) => (
+                                <ImageListItem key={item.img}>
+                                    <img
+                                        onClick={() => setShowFirstPage(false)}
+                                        src={`${item.img}?w=248&fit=crop&auto=format`}
+                                        srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                        alt={'' + i}
+                                    // loading="lazy"
+                                    />
+                                    <ImageListItemBar
+                                        sx={{
+                                            background:
+                                                'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
+                                                'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+                                        }}
+                                        title={item.title}
+                                        position="top"
+
+                                    />
+                                </ImageListItem>
+                            ))}
+                        </ImageList>
+                    </Box></>}
+
+            {!showFirstPage && <>
+                <div onClick={() => setShowFirstPage(true)} style={{ position: 'absolute', top: 15, left: 8 }}><ArrowBackIcon /></div>
+                <p style={{ textAlign: 'center', padding: 30 }}>Gallery</p>
+                <Box sx={{ width: window.screen.width, height: window.screen.availHeight - 250, overflowY: 'auto' }}>
+                    <ImageList variant="masonry" cols={2} gap={8}>
+                        {photos.map((item, i) => (
+                            <ImageListItem key={item.img}>
+                                <img
+                                    onClick={handleShowDialog(`${item.img}?w=248&fit=crop&auto=format`)}
+                                    src={`${item.img}?w=248&fit=crop&auto=format`}
+                                    srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                    alt={'' + i}
+                                // loading="lazy"
+                                />
+                                <ImageListItemBar
+                                    sx={{
+                                        background:
+                                            'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
+                                            'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+                                    }}
+                                    title={item.title}
+                                    position="top"
+
+                                />
+                            </ImageListItem>
+                        ))}
+                    </ImageList>
+                </Box>
+                <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}>
+                    <Link to={"/order"}>
+                        <Button variant="contained">Order A Custom Pop</Button>
+                    </Link>
+                </div></>}
         </div>
 
     );
