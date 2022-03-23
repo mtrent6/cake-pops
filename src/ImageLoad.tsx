@@ -17,7 +17,7 @@ export const ImageLoad = (props) => {
         <div className="App">
             <div
                 className={`${pulsing ? "pulse" : ""} loadable`}
-                style={{ background: "#ccc" }}
+                style={{ background: "#f2d9b1" }}
             >
                 <motion.img
                     initial={{ height: "16rem", opacity: 0 }}
