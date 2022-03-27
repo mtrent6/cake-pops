@@ -83,11 +83,7 @@ export const Order = () => {
   return (
     <>
       <TemporaryDrawer />
-      <Tabs sx={{ paddingTop: '1vh' }} color="green" tabPadding="xl">
-        <Tabs.Tab label="Info" icon={<Photo size={14} />}>
-          <Blockquote color="pink" cite="– Forrest Gump">
-            If eating cake is wrong I don't want to be right
-          </Blockquote></Tabs.Tab>
+      <Tabs sx={{ paddingTop: '1vh' }} color="pink" tabPadding="xl">
         <Tabs.Tab label="Order" icon={<MessageCircle size={14} />}>    <div className="bg-ambar-50 flex flex-col h-screen text-center">
           <p style={{ fontSize: 14, marginBottom: 10 }}>
             Create your cakepop order below!
@@ -129,6 +125,10 @@ export const Order = () => {
 
           </div>
         </div ></Tabs.Tab>
+        <Tabs.Tab label="Info" icon={<Photo size={14} />}>
+          <Blockquote color="pink" cite="– Forrest Gump">
+            If eating cake is wrong I don't want to be right
+          </Blockquote></Tabs.Tab>
       </Tabs>
 
     </>
