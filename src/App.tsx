@@ -5,20 +5,25 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Order, Delivery, Receipt } from './Order'
 import MasonryImageList from "./MasonryImage";
 import Home from './Home'
+import { MantineProvider } from '@mantine/core';
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/home" element={<Home />}/>
-        <Route path="/order" element={<Order />} />
-        <Route path="/gallery" element={<MasonryImageList />} />
-        <Route path="/order/delivery" element={<Delivery />} />
-        <Route path="/order/receipt" element={<Receipt />} />
+    <MantineProvider theme={{ colorScheme: 'dark' }}>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/gallery" element={<MasonryImageList />} />
+          <Route path="/order/delivery" element={<Delivery />} />
+          <Route path="/order/receipt" element={<Receipt />} />
 
 
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </MantineProvider>
   );
 }
 
