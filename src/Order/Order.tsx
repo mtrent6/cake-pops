@@ -1,4 +1,3 @@
-import TemporaryDrawer from "./Drawer";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -12,158 +11,14 @@ import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
-import { useEffect } from "react";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Button from "@mui/material/Button";
-import { Outlet, Link } from "react-router-dom";
-
-function orderNumber() {
-  let now = Date.now().toString() // '1492341545873'
-  // pad with extra random digit
-  now += now + Math.floor(Math.random() * 10)
-  // format
-  return [now.slice(0, 4), now.slice(4, 10), now.slice(10, 14)].join('-')
-}
+import { Link } from "react-router-dom";
+import TemporaryDrawer from "../Drawer";
+import { RichTextEditor } from '@mantine/rte';
+import { ColorInput } from '@mantine/core';
 
 
-export const Receipt = () => {
-
-  return (
-    <div style={{ height: window.screen.height }}>
-      <TemporaryDrawer />
-      <div className="bg-ambar-50"  >
-        <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 200, alignItems: 'center', flexDirection: 'column' }}>
-          <p style={{ fontSize: 24 }}>Thank you for your Order!</p>
-          <p style={{ fontSize: 20 }}>Your Order Number is: </p>
-          <p style={{ fontSize: 20 }}>{orderNumber()} </p>
-          <p style={{ textAlign: 'center' }}>Please email us at email@gmail.com with any questions</p>
-
-
-        </div>
-
-      </div>
-    </div>
-  )
-
-}
-
-export const Delivery = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
-  const [state, setState] = useState("");
-  const [city, setCity] = useState("");
-  const [zip, setZip] = useState("");
-  const [address, setAddress] = useState("");
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleNumberChange = (event) => {
-    setNumber(event.target.value);
-  };
-
-  const handleAddressChange = (event) => {
-    setAddress(event.target.value);
-  };
-
-  const handleStateChange = (event) => {
-    setState(event.target.value);
-  };
-
-  const handleCityChange = (event) => {
-    setCity(event.target.value);
-  };
-
-  const handleZipChange = (event) => {
-    setZip(event.target.value);
-  };
-
-  return (
-    <>
-      <TemporaryDrawer />
-      <div className="bg-ambar-50 flex flex-col h-screen text-center">
-        <p style={{ fontSize: 14, marginBottom: 10, marginTop: 5 }}>
-          Enter your personal information below
-        </p>
-        <Box
-          component="form"
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <div>
-            <TextField
-              required
-              id="outlined-required"
-              value={name}
-              label="Name"
-              onChange={handleNameChange}
-            />
-            <TextField
-              required
-              id="outlined-required"
-              value={number}
-              inputProps={{ inputMode: "numeric" }}
-              onChange={handleNumberChange}
-              label="Phone Number"
-            />
-            <TextField
-              required
-              id="outlined-required"
-              value={email}
-              onChange={handleEmailChange}
-              label="Email"
-            />
-            <TextField
-              required
-              id="outlined-required"
-              value={address}
-              label="Address"
-              onChange={handleAddressChange}
-            />
-            <TextField
-              required
-              id="outlined-required"
-              value={city}
-              label="City"
-              onChange={handleCityChange}
-            />
-            <TextField
-              required
-              id="outlined-required"
-              value={state}
-              label="State"
-              onChange={handleStateChange}
-            />
-            <TextField
-              required
-              id="outlined-required"
-              value={zip}
-              inputProps={{ inputMode: "numeric" }}
-              label="Zip"
-              onChange={handleZipChange}
-            />
-
-          </div>
-        </Box>
-        <div style={{ paddingTop: 30 }}>
-          <Link to={"/order/receipt"}>
-            <Button variant="contained">Submit</Button>
-          </Link>
-        </div>
-
-      </div>
-    </>
-  )
-}
 
 
 export const Order = () => {
@@ -257,7 +112,13 @@ export const Order = () => {
               </Select>
             </FormControl>
             <p style={{ paddingBottom: 8 }}>select the color for your cake pops</p>
-
+            <ColorInput
+              sx={{ paddingLeft: 150, paddingRight: 150 }}
+              format="hex"
+              withPicker={false}
+              swatches={['#25262b', '#868e96', '#fa5252', '#e64980', '#be4bdb', '#7950f2', '#4c6ef5', '#228be6', '#15aabf', '#12b886', '#40c057', '#82c91e', '#fab005', '#fd7e14']}
+            />
+            {/* 
             <FormControl style={{ width: 250 }} error={flavor.length > 2}>
               <InputLabel id="demo-simple-select-label">Color</InputLabel>
               <Select
@@ -270,27 +131,29 @@ export const Order = () => {
                 renderValue={(selected) => selected}
 
               >
-                <MenuItem value="blue" style={{backgroundColor: 'blue', color: 'white'}}>
+                <MenuItem value="blue" style={{ backgroundColor: 'blue', color: 'white' }}>
                   <ListItemText primary={'blue'} />
 
-                 
-                </MenuItem>
-                <MenuItem style={{backgroundColor: 'magenta'}} value="magenta">
-                <ListItemText primary={'magenta'} />
-  
-                </MenuItem>
-                <MenuItem style={{backgroundColor: 'yellow'}} value="yellow">
-                <ListItemText primary={'yellow'} />
 
                 </MenuItem>
-                <MenuItem style={{backgroundColor:'red'}} value="red">
-                <ListItemText primary={'red'} />
+                <MenuItem style={{ backgroundColor: 'magenta' }} value="magenta">
+                  <ListItemText primary={'magenta'} />
+
                 </MenuItem>
-                <MenuItem style={{backgroundColor: 'green'}} value="green">
-                <ListItemText primary={'green'} />
+                <MenuItem style={{ backgroundColor: 'yellow' }} value="yellow">
+                  <ListItemText primary={'yellow'} />
+
+                </MenuItem>
+                <MenuItem style={{ backgroundColor: 'red' }} value="red">
+                  <ListItemText primary={'red'} />
+                </MenuItem>
+                <MenuItem style={{ backgroundColor: 'green' }} value="green">
+                  <ListItemText primary={'green'} />
                 </MenuItem>
               </Select>
-            </FormControl>
+            </FormControl> */}
+
+
             <p style={{ paddingBottom: 5 }}> enter how many cake pops you wnat</p>
 
             <TextField
@@ -314,7 +177,7 @@ export const Order = () => {
 
             <div style={{ marginTop: 80, marginBottom: 80 }}>
               <Link to={"/order/delivery"}>
-                <Button variant="contained">Continue</Button>
+                <Button sx={{ backgroundColor: '#FAD900', color: 'black', fontFamily: 'monospace' }} variant="contained">Continue</Button>
               </Link>
             </div>
 
