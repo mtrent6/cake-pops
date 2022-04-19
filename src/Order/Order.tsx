@@ -22,6 +22,7 @@ import { Photo, MessageCircle, Settings } from 'tabler-icons-react';
 import { CheckIcon } from '@modulz/radix-icons';
 import { ColorSwatch, Group, useMantineTheme, Center } from '@mantine/core';
 import { DatePicker } from '@mantine/dates';
+import { Textarea } from '@mantine/core';
 
 
 
@@ -91,10 +92,10 @@ export const Order = () => {
     <>
       <TemporaryDrawer />
       <Tabs sx={{ paddingTop: '1vh' }} color="pink" tabPadding="xl">
-        <Tabs.Tab label="Order" icon={<MessageCircle size={14} />}>
+        <Tabs.Tab label="Signature" icon={<MessageCircle size={14} />}>
           <Center>
             <div className="bg-ambar-50 flex flex-col h-screen text-center">
-              <p style={{ fontSize: 14, marginBottom: 10 }}>
+              <p style={{ fontSize: 14, marginBottom: 10, paddingTop: 0 }}>
                 Create your cakepop order below!
               </p>
 
@@ -114,9 +115,7 @@ export const Order = () => {
                 swatches={['#25262b', '#868e96', '#fa5252', '#e64980', '#be4bdb', '#7950f2', '#4c6ef5', '#228be6', '#15aabf', '#12b886', '#40c057', '#82c91e', '#fab005', '#fd7e14']}
               />
 
-
               <NumberInput
-
                 sx={mantineStyle}
                 defaultValue={1}
                 placeholder="# of cakepops in dozens"
@@ -136,10 +135,41 @@ export const Order = () => {
             </div>
           </Center>
         </Tabs.Tab>
-        <Tabs.Tab label="Info" icon={<Photo size={14} />}>
-          <Blockquote color="pink" cite="– Forrest Gump">
-            If eating cake is wrong I don't want to be right
-          </Blockquote></Tabs.Tab>
+        <Tabs.Tab label="Custom" icon={<Photo size={14} />}>
+          <div className="bg-ambar-50 flex flex-col h-screen text-center" style={{ marginLeft: '3vh', marginRight: '3vh' }}>
+            <p style={{ paddingTop: 0, textAlign: 'center', paddingBottom: '3vh' }}>Please share any information about how you want to customize your cake pops including event details, references from our gallery, or anything else. We will be in touch with you to confirm the specifics.</p>
+            <Textarea
+              placeholder="Hi! I have my sons birthday coming up and we would look 4 dozen cake pops. We looked at the gallery and really like 
+              how this cake pop looked"
+              required
+              autosize
+              minRows={2}
+            />
+            <div style={{ marginTop: 80, marginBottom: 80 }}>
+              <Link to={"/order/delivery"}>
+                <Button sx={{ backgroundColor: '#FAD900', color: 'black', fontFamily: 'monospace' }} variant="contained">Continue</Button>
+              </Link>
+            </div>
+          </div>
+
+        </Tabs.Tab>
+        <Tabs.Tab label="Cookies" icon={<Photo size={14} />}>
+          <div className="bg-ambar-50 flex flex-col h-screen text-center" style={{ marginLeft: '3vh', marginRight: '3vh' }}>
+            <p style={{ paddingTop: 0, textAlign: 'center', paddingBottom: '3vh' }}>Want to order a custom cookie with your own logo or design on it? Let us know below what you want and we'll be in touch with you with further details</p>
+            <Textarea
+              placeholder="Hi! I would like to order 5 dozen cookies with my companies logo on them"
+              required
+              autosize
+              minRows={2}
+            />
+            <div style={{ marginTop: 80, marginBottom: 80 }}>
+              <Link to={"/order/delivery"}>
+                <Button sx={{ backgroundColor: '#FAD900', color: 'black', fontFamily: 'monospace' }} variant="contained">Continue</Button>
+              </Link>
+            </div>
+          </div>
+
+        </Tabs.Tab>
       </Tabs>
 
     </>
