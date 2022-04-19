@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
@@ -37,6 +37,10 @@ const mantineStyle = {
 
 }
 export const Order = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+
+  }, [])
   const theme = useMantineTheme();
   const [checked, setChecked] = useState(true);
 
@@ -89,7 +93,7 @@ export const Order = () => {
     "Strawberry",
   ];
   return (
-    <>
+    <div style={{overflowX: 'hidden'}}>
       <TemporaryDrawer />
       <Tabs sx={{ paddingTop: '1vh' }} color="pink" tabPadding="xl">
         <Tabs.Tab label="Signature" icon={<MessageCircle size={14} />}>
@@ -172,6 +176,6 @@ export const Order = () => {
         </Tabs.Tab>
       </Tabs>
 
-    </>
+    </div>
   );
 };
