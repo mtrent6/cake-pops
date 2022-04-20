@@ -1,13 +1,13 @@
 import { COOKIE_ORDER, CUSTOM_ORDER, SIGNATURE_ORDER } from "./actionTypes"
 
 const initalState = {
-    signature : {
+    signature: {
         flavors: '',
         quantity: 0,
-        eventDate: undefined, 
+        eventDate: undefined,
         colors: undefined,
     },
-    custom : '',
+    custom: '',
     cookie: '',
     deliveryInfo: {
         name: '',
@@ -17,20 +17,30 @@ const initalState = {
         city: '',
         state: '',
         zip: ''
-    }
+    },
+    orderType: ''
 
 }
 
 export default function orderReducer(state = initalState, action) {
     switch (action.type) {
         case COOKIE_ORDER:
-            return state
-        case CUSTOM_ORDER: 
-            return state
+            return {
+                ...state,
+                cookie: action.payload,
+                orderType: 'COOKIE'
+            }
+        case CUSTOM_ORDER:
+            return {
+                ...state,
+                custom: action.payload,
+                orderType: 'CUSTOM'
+            }
         case SIGNATURE_ORDER:
             return {
                 ...state,
-                signature: action.payload
+                signature: action.payload,
+                orderType: 'SIGNATURE'
             }
         default:
             return state

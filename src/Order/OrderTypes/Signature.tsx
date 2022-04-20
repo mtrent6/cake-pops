@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
-import { MultiSelect, Blockquote } from '@mantine/core';
+import { MultiSelect } from '@mantine/core';
 import { ColorInput } from '@mantine/core';
 import { NumberInput } from '@mantine/core';
 import { DatePicker } from '@mantine/dates';
