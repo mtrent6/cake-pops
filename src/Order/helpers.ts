@@ -1,10 +1,13 @@
+import emailjs from '@emailjs/browser';
+
+
 export const states = ["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY"]
 
 
 /**
  * taken from https://tomduffytech.com/how-to-format-phone-number-in-react/
  */
- export function formatPhoneNumber(value) {
+export function formatPhoneNumber(value) {
     // if input value is falsy eg if the user deletes the input, then just return
     if (!value) return value;
 
@@ -33,3 +36,38 @@ export const states = ["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE
     )}-${phoneNumber.slice(6, 10)}`;
 }
 
+/**
+ * Flatten a multidimensional object
+ *
+ * For example:
+ *   flattenObject{ a: 1, b: { c: 2 } }
+ * Returns:
+ *   { a: 1, c: 2}
+ */
+ export const flattenObject = (obj) => {
+    const flattened = {}
+  
+    Object.keys(obj).forEach((key) => {
+      const value = obj[key]
+  
+      if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        Object.assign(flattened, flattenObject(value))
+      } else {
+        flattened[key] = value
+      }
+    })
+  
+    return flattened
+  }
+  
+  export const emailOrder = (email) => {
+    const info = flattenObject(email)
+
+    console.log('info', info)
+    // emailjs.send('service_7yo4mu8', 'template_da0qt0x', { name: deliveryInfo.name, address: deliveryInfo.address }, 'R_WnfZ0ybFJdonI9d')
+    //     .then(function (response) {
+    //         console.log('SUCCESS!', response.status, response.text);
+    //     }, function (error) {
+    //         console.log('FAILED...', error);
+    //     }); console.log(email)
+}

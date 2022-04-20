@@ -1,13 +1,12 @@
 import TemporaryDrawer from "../Drawer";
 import { useState } from 'react'
 import { Link } from "react-router-dom";
-// import Button from "@mui/material/Button";
 import { Box, TextInput, NumberInput, Button, Group } from '@mantine/core';
 
 import { connect } from "react-redux";
 import { Center } from '@mantine/core';
 import { Select } from '@mantine/core';
-import { states, formatPhoneNumber } from './helpers'
+import { states, formatPhoneNumber, emailOrder } from './helpers'
 import { useForm } from '@mantine/form';
 
 const mantineStyle = {
@@ -27,8 +26,15 @@ export const Delivery = (props) => {
     };
 
     const email = (values) => {
-        console.log(props, values, number)
+        const order = { ...props }
+        delete order.dispatch
+        values.number = number
+        const email = {
+            order,
+            deliveryInfo: values
 
+        }
+        emailOrder(email)
     }
 
     const form = useForm({
@@ -52,7 +58,6 @@ export const Delivery = (props) => {
     return (
         <>
             <TemporaryDrawer />
-
             <Center>
                 <form onSubmit={form.onSubmit((values) => email(values))}>
                     <div className="bg-ambar-50 flex flex-col h-screen text-center">
