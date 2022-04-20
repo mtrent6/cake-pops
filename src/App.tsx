@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Order } from './Order/Order'
+import Order from './Order/Order'
 import { Delivery } from "./Order/Delivery";
 import { Receipt } from "./Order/Receipt";
 import MasonryImageList from "./MasonryImage";

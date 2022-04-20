@@ -1,16 +1,5 @@
 import React, { useEffect } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { useState } from "react";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import ListItemText from "@mui/material/ListItemText";
-import Select from "@mui/material/Select";
-import Checkbox from "@mui/material/Checkbox";
-import OutlinedInput from "@mui/material/OutlinedInput";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import TemporaryDrawer from "../Drawer";
@@ -19,14 +8,13 @@ import { ColorInput } from '@mantine/core';
 import { NumberInput } from '@mantine/core';
 import { Tabs } from '@mantine/core';
 import { Photo, MessageCircle, Settings } from 'tabler-icons-react';
-import { CheckIcon } from '@modulz/radix-icons';
 import { ColorSwatch, Group, useMantineTheme, Center } from '@mantine/core';
 import { DatePicker } from '@mantine/dates';
 import { Textarea } from '@mantine/core';
 import { useForm } from '@mantine/form';
-
-
-
+import { connect } from "react-redux";
+import { bindActionCreators, } from 'redux'
+import { setSignatureOrder } from "../redux/actions";
 
 
 const mantineStyle = {
@@ -37,14 +25,12 @@ const mantineStyle = {
   paddingBottom: '1vh'
 
 }
-export const Order = () => {
+export const Order = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0)
-
   }, [])
-  const theme = useMantineTheme();
-  const [checked, setChecked] = useState(true);
 
+  const { setSignatureOrder } = props
 
   const [quantity, setQuantity] = useState(0);
 
@@ -61,7 +47,7 @@ export const Order = () => {
    * USE MANTINE
    * GODSPEED
    */
-  
+
   const form = useForm({
     initialValues: {
       email: '',
@@ -115,7 +101,7 @@ export const Order = () => {
     "Strawberry",
   ];
   return (
-    <div style={{overflowX: 'hidden'}}>
+    <div style={{ overflowX: 'hidden' }}>
       <TemporaryDrawer />
       <Tabs sx={{ paddingTop: '1vh' }} color="pink" tabPadding="xl">
         <Tabs.Tab label="Signature" icon={<MessageCircle size={14} />}>
@@ -201,3 +187,15 @@ export const Order = () => {
     </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  return state.signature
+
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ setSignatureOrder }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Order);
+
