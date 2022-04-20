@@ -43,6 +43,27 @@ export const Delivery = () => {
         setZip(event.target.value);
     };
 
+//       /**
+//    * NOTE TO FUTURE ME, I SHOULD USE https://mantine.dev/form/use-form/ TO DO 
+//    * THE FORM FOR THIS
+//    * STATEFUL METHODS IS STUPID
+//    * USE MANTINE
+//    * GODSPEED
+//    */
+
+//   const form = useForm({
+//     initialValues: {
+//       email: '',
+//       termsOfService: false,
+//     },
+
+//     validate: {
+//       email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+//     },
+//   });
+
+
+
     return (
         <>
             <TemporaryDrawer />
