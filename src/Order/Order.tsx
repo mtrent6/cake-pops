@@ -23,6 +23,7 @@ import { CheckIcon } from '@modulz/radix-icons';
 import { ColorSwatch, Group, useMantineTheme, Center } from '@mantine/core';
 import { DatePicker } from '@mantine/dates';
 import { Textarea } from '@mantine/core';
+import { useForm } from '@mantine/form';
 
 
 
@@ -52,6 +53,27 @@ export const Order = () => {
   const [date, setDate] = useState(new Date());
 
   const [color, setColor] = useState('')
+
+  /**
+   * NOTE TO FUTURE ME, I SHOULD USE https://mantine.dev/form/use-form/ TO DO 
+   * THE FORM FOR THIS
+   * STATEFUL METHODS IS STUPID
+   * USE MANTINE
+   * GODSPEED
+   */
+  
+  const form = useForm({
+    initialValues: {
+      email: '',
+      termsOfService: false,
+    },
+
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+    },
+  });
+
+
 
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
@@ -143,7 +165,7 @@ export const Order = () => {
           <div className="bg-ambar-50 flex flex-col h-screen text-center" style={{ marginLeft: '3vh', marginRight: '3vh' }}>
             <p style={{ paddingTop: 0, textAlign: 'center', paddingBottom: '3vh' }}>Please share any information about how you want to customize your cake pops including event details, references from our gallery, or anything else. We will be in touch with you to confirm the specifics.</p>
             <Textarea
-              placeholder="Hi! I have my sons birthday coming up and we would look 4 dozen cake pops. We looked at the gallery and really like 
+              placeholder="Hi! I have my sons birthday coming up and we would like 4 dozen cake pops. We looked at the gallery and really like 
               how this cake pop looked"
               required
               autosize
