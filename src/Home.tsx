@@ -84,10 +84,10 @@ function Home() {
             <ScrollPage page={1}>
               {/* @ts-ignore */}
               <Animator animation={animation}>
-                <span style={{ fontSize: "40px" }}>
-                  <p>Share the LOVE of Cake Pops!</p>
-                  <p>🎂🎂🎂</p>
-                </span>
+                  <span style={{ fontSize: "40px" }}>
+                    <p>Share the LOVE of Cake Pops!</p>
+                    <p>🎂🎂🎂</p>
+                  </span>
               </Animator>
             </ScrollPage>
 
@@ -115,12 +115,14 @@ function Home() {
         </div>
         <div
           id="aboutUs"
+          style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}
         >
           This section is experimental
-          <p style={{ fontSize: 20, backgroundColor: '#2596be', color: 'white', textAlign: 'left', paddingLeft: 10, height: '5vh', paddingTop: '1vh' }}>Our Services</p>
-          <div style={{ backgroundColor: "#eab676", width: '100%' }}>
+          <p style={{fontSize: 20, fontWeight: 500}}>---Our Services---</p>
+          {/* <p style={{ fontSize: 20, backgroundColor: '#2596be', color: 'white', textAlign: 'left', paddingLeft: 10, height: '5vh', paddingTop: '1vh' }}>Our Services</p> */}
+          <div style={{ backgroundColor: "#eab676", width: '95%' }}>
             <p style={{ paddingTop: 0, fontSize: 20, color: 'black', textAlign: 'left', paddingLeft: 10 }}>Cakepops</p>
-            <p style={{textAlign: 'left', paddingLeft: 10, paddingTop: 0, color: '#f5f5f5', fontWeight: 500, fontSize: 18}}>We create all kinds of cake pops, from our signature series to whatever you can imagine with our custom cake pops</p>
+            <p style={{ textAlign: 'left', paddingLeft: 10, paddingTop: 0, color: '#f5f5f5', fontWeight: 500, fontSize: 18 }}>We create all kinds of cake pops, from our signature series to whatever you can imagine with our custom cake pops</p>
             <div style={{ width: 240, marginLeft: 10, paddingBottom: 5 }}>
 
               <Image
@@ -130,9 +132,9 @@ function Home() {
               />
             </div>
           </div>
-          <div style={{ backgroundColor: "#DB93B0", width: '100%' }}>
+          <div style={{ backgroundColor: "#DB93B0", width: '95%' }}>
             <p style={{ paddingTop: 0, fontSize: 20, color: 'black', textAlign: 'left', paddingLeft: 10 }}>Cookies</p>
-            <p style={{textAlign: 'left', paddingLeft: 10, color: '#f5f5f5', paddingTop: 0, fontWeight: 500, fontSize: 18}}>We also create custom cookies, if you have a logo or design you want printed on, we can do it</p>
+            <p style={{ textAlign: 'left', paddingLeft: 10, color: '#f5f5f5', paddingTop: 0, fontWeight: 500, fontSize: 18 }}>We also create custom cookies, if you have a logo or design you want printed on, we can do it</p>
             <div style={{ width: 240, marginLeft: 10, paddingBottom: 5 }}>
 
               <Image
