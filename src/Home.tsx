@@ -120,7 +120,7 @@ function Home() {
           <p style={{ fontSize: 20, backgroundColor: '#2596be', color: 'white', textAlign: 'left', paddingLeft: 10, height: '5vh', paddingTop: '1vh' }}>Our Services</p>
           <div style={{ backgroundColor: "#eab676", width: '100%' }}>
             <p style={{ paddingTop: 0, fontSize: 20, color: 'black', textAlign: 'left', paddingLeft: 10 }}>Cakepops</p>
-            <p style={{textAlign: 'left', paddingLeft: 10, color: '#f5f5f5', fontWeight: 500, fontSize: 18}}>We create all kinds of cake pops, from our signature series to whatever you can imagine with our custom cake pops</p>
+            <p style={{textAlign: 'left', paddingLeft: 10, paddingTop: 0, color: '#f5f5f5', fontWeight: 500, fontSize: 18}}>We create all kinds of cake pops, from our signature series to whatever you can imagine with our custom cake pops</p>
             <div style={{ width: 240, marginLeft: 10, paddingBottom: 5 }}>
 
               <Image
@@ -132,7 +132,7 @@ function Home() {
           </div>
           <div style={{ backgroundColor: "#DB93B0", width: '100%' }}>
             <p style={{ paddingTop: 0, fontSize: 20, color: 'black', textAlign: 'left', paddingLeft: 10 }}>Cookies</p>
-            <p style={{textAlign: 'left', paddingLeft: 10, color: '#f5f5f5', fontWeight: 500, fontSize: 18}}>We also create custom cookies, if you have a logo or design you want printed on, we can do it</p>
+            <p style={{textAlign: 'left', paddingLeft: 10, color: '#f5f5f5', paddingTop: 0, fontWeight: 500, fontSize: 18}}>We also create custom cookies, if you have a logo or design you want printed on, we can do it</p>
             <div style={{ width: 240, marginLeft: 10, paddingBottom: 5 }}>
 
               <Image
