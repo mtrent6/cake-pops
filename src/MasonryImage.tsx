@@ -13,7 +13,7 @@ import cake6 from "./assets/cake6.jpeg";
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import blurry from "./assets/blurry.jpeg"
-import {ImageLoad} from "./ImageLoad"
+import { ImageLoad } from "./ImageLoad"
 const style = {
     position: 'absolute',
     top: '50%',
@@ -49,7 +49,6 @@ export default function MasonryImageList() {
 
     const handleShowDialog = (src) => () => {
         setIsOpen(!isOpen);
-        console.log('cliked');
         setImgSrc(src)
     };
 
@@ -74,9 +73,7 @@ export default function MasonryImageList() {
                     />
 
                     <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center' }}>
-                        <Link to={"/order"}>
-                            <Button sx={{ backgroundColor: '#FAD900', fontFamily: 'monospace', color: 'black' }} variant="contained">Order This CakePop</Button>
-                        </Link>
+                        <Button onClick={handleShowDialog('')} sx={{ backgroundColor: '#FAD900', fontFamily: 'monospace', color: 'black' }} variant="contained">Close</Button>
                     </div>
                 </Box>
             </Modal>
