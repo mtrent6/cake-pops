@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { MultiSelect } from '@mantine/core';
 import { ColorInput } from '@mantine/core';
@@ -7,7 +7,15 @@ import { DatePicker } from '@mantine/dates';
 import { Center } from '@mantine/core';
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { forwardRef } from 'react';
+import { Group, Avatar, Text, Select } from '@mantine/core';
+import {flavors, colors} from "./OrderConstants"
 
+interface ItemProps extends React.ComponentPropsWithoutRef<'div'> {
+    image: string;
+    label: string;
+    description: string;
+}
 
 export const Signature = ({ setSignatureOrder, mantineStyle }) => {
     const [quantity, setQuantity] = useState<number>(0);
@@ -16,45 +24,54 @@ export const Signature = ({ setSignatureOrder, mantineStyle }) => {
 
     const [date, setDate] = useState(new Date());
 
-    const [color, setColor] = useState('')
+    const [color, setColor] = useState('');
+
+    useEffect(() => {
+        console.log('col: ' + color)
+    },[color])
 
 
-    const flavors = [
-        "Vanilla",
-        "Chocolate",
-        "Lemon",
-        "Carrot",
-        "Red Velvet",
-        "Chocolate Mint",
-        "Cookies and Cream",
-        "Funfetti",
-        "Strawberry",
-    ];
+    const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
+        ({ image, label, ...others }: ItemProps, ref) => (
+            <div ref={ref} {...others}>
+                <Group noWrap>
+                    <Avatar src={image} />
+
+                    <div>
+                        <Text size="sm">{label}</Text>
+
+                    </div>
+                </Group>
+            </div>
+        )
+    );
 
     return (
         <Center>
-            <div className="bg-ambar-50 flex flex-col h-screen text-center">
+            <div className="bg-ambar-50 flex flex-col h-screen text-center" style={{ marginLeft: 40, marginRight: 40 }}>
                 <p style={{ fontSize: 14, marginBottom: 10, paddingTop: 0 }}>
-                    Create your cakepop order below!
+                    Create your Signature Series cake pop order below!
                 </p>
 
                 <MultiSelect
                     sx={mantineStyle}
                     data={flavors}
-                    label="Select two flavors"
-                    placeholder="Pick all that you like"
+                    label="Select up to two flavors per dozen."
+                    placeholder="Pick one or two flavor(s)"
                     value={flavor}
+                    maxSelectedValues={2}
                     onChange={e => setFlavor(e!)}
                 />
 
-                <ColorInput
+                <Select
+                    label="Select your colors"
+                    placeholder="Pick a color"
+                    itemComponent={SelectItem}
+                    data={colors}
+                    onChange={e => setColor(e!)}
+                    maxDropdownHeight={400}
                     sx={mantineStyle}
-                    format="hex"
-                    withPicker={false}
-                    label={"Select your colors"}
-                    value={color}
-                    onChange={(e) => setColor(e!)}
-                    swatches={['#25262b', '#868e96', '#fa5252', '#e64980', '#be4bdb', '#7950f2', '#4c6ef5', '#228be6', '#15aabf', '#12b886', '#40c057', '#82c91e', '#fab005', '#fd7e14']}
+           
                 />
 
                 <NumberInput
